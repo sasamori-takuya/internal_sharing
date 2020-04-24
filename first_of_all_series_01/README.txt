@@ -1,0 +1,1 @@
+Python で itertools を用いてクロス度数集計を半自動的に行う
