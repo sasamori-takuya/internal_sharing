@@ -1,50 +1,50 @@
 require("minerva")
 
-sink("result_byR.txt")  # console ‚Ìo—Í“à—e‚ğ•Û‘¶(path‚Í“K‹X•ÏX)
+sink("result_byR.txt")  # console ã®å‡ºåŠ›å†…å®¹ã‚’ä¿å­˜(pathã¯é©å®œå¤‰æ›´)
 
 PrintIndicators <- function(x, y){
   corr <- cor(x, y)
   mine.vals <- mine(x, y)
   
-  print(paste("[üŒ`‘ŠŠÖ‚Ìw•W] Pearson Corr = ",
+  print(paste("[ç·šå½¢ç›¸é–¢ã®æŒ‡æ¨™] Pearson Corr = ",
               sprintf("%.3f", corr)
               ),
-              quote = F
+        quote = F
         )
-  print(paste("[üŒ`‚Æ‚ÍŒÀ‚ç‚È‚¢‘ŠŠÖ‚Ìw•W] MIC = ",
+  print(paste("[ç·šå½¢ã¨ã¯é™ã‚‰ãªã„ç›¸é–¢ã®æŒ‡æ¨™] MIC = ",
               sprintf("%.3f", mine.vals$MIC)
               ),
-              quote = F
+        quote = F
         )
-  print(paste("[’P’²ŠÖŒW‚ª‚È‚³‚»‚¤‚©‚Ç‚¤‚©‚Ìw•W] MAS = ",
+  print(paste("[å˜èª¿é–¢ä¿‚ãŒãªã•ãã†ã‹ã©ã†ã‹ã®æŒ‡æ¨™] MAS = ",
               sprintf("%.3f", mine.vals$MAS)
               ),
-              quote = F
+        quote = F
         )
-  print(paste("[‹ï‘Ì“I‚ÈŠÖ”‚ª‚ ‚è‚»‚¤‚©‚Ç‚¤‚©‚Ìw•W] MEV = ",
+  print(paste("[å…·ä½“çš„ãªé–¢æ•°ãŒã‚ã‚Šãã†ã‹ã©ã†ã‹ã®æŒ‡æ¨™] MEV = ",
               sprintf("%.3f", mine.vals$MEV)
               ),
-              quote = F
+        quote = F
         )
-  print(paste("[•¡G«‚Ìw•W] MCN = ",
+  print(paste("[è¤‡é›‘æ€§ã®æŒ‡æ¨™] MCN = ",
               sprintf("%.3f", mine.vals$MCN)
               ),
-              quote = F
+        quote = F
         )
-  print(paste("[”ñüŒ`«‚Ìw•W] MIC-R2 = ",
+  print(paste("[éç·šå½¢æ€§ã®æŒ‡æ¨™] MIC-R2 = ",
               sprintf("%.3f", mine.vals$`MIC-R2`)
               ),
-              quote = F
+        quote = F
         )
   print(paste("GMIC = ",
               sprintf("%.3f", mine.vals$GMIC)
               ),
-              quote = F
+        quote = F
         )
   print(paste("TIC = ",
               sprintf("%.3f", mine.vals$TIC)
               ),
-              quote = F
+        quote = F
         )
   
   plot(x, y, col = 4, main = "scatter plot of (x, y)", cex.main = 1.3)
@@ -99,7 +99,7 @@ print("y = sin(x) + noise")
 PrintIndicators(x, y)
 
 ###############################################################################
-# y = x ‚Æ y = -x ‚Ì2‚Â‚Ì’¼ü
+# y = x ã¨ y = -x ã®2ã¤ã®ç›´ç·š
 ###############################################################################
 set.seed(5)
 N <- 200
@@ -131,7 +131,7 @@ print("x^2 + y^2 = 1")
 PrintIndicators(x, y)
 
 ###############################################################################
-# y = x^2 ‚Æ y = -x^2 ‚Ì2‚Â‚Ì‹Èü
+# y = x^2 ã¨ y = -x^2 ã®2ã¤ã®æ›²ç·š
 ###############################################################################
 set.seed(7)
 N <- 200
@@ -159,7 +159,7 @@ print("y = x - [x]")
 PrintIndicators(x, y)
 
 ###############################################################################
-# y = x^2 ‚Æ z = sin(x) ‚Æ‚µ‚Ä y ‚Æ z ‚Ì‘ŠŠÖ
+# y = x^2 ã¨ z = sin(x) ã¨ã—ã¦ y ã¨ z ã®ç›¸é–¢
 ###############################################################################
 set.seed(9)
 N <- 200
@@ -172,12 +172,12 @@ print("y = x^2, z = sin(x), caluc (y, z)")
 PrintIndicators(y, z)
 
 ###############################################################################
-# AR(1) ƒ‚ƒfƒ‹ y_t = 0.5 y_{t-1} + epsilon_t
+# AR(1) ãƒ¢ãƒ‡ãƒ« y_t = 0.5 y_{t-1} + epsilon_t
 ###############################################################################
 set.seed(10)
 N <- 100
 x <- seq(-1, 1, length = N)
-y <- rep(0, N)  # ‰Šú‰»
+y <- rep(0, N)  # åˆæœŸåŒ–
 phi <- 0.5
 
 for (i in 1:N){
@@ -187,7 +187,7 @@ for (i in 1:N){
 print("AR(1) model y_t = 0.5 y_{t-1} + epsilon_t")
 PrintIndicators(x, y)
 
-# Ql
+# å‚è€ƒ
 plot(x, y, col = 4, type = "l")
 
 ###############################################################################
@@ -203,7 +203,7 @@ print("y = noise")
 PrintIndicators(x, y)
 
 ###############################################################################
-# sink ‚Ìİ’è‚ğ‰ğœ 
+# sink ã®è¨­å®šã‚’è§£é™¤ 
 ###############################################################################
 
 sink()
